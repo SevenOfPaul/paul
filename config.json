@@ -1,9 +1,13 @@
 {
     "title":"Paul的博客，吐槽下生活！",
     "subTitle":"童话是一种生活态度，仅此而已。",
+    "displayTitle":"Paul的博客，吐槽下生活！",
     "avatarUrl":"https://github.githubassets.com/favicons/favicon.svg",
     "GMEEK_VERSION":"last",
     "email":"g13136918273@gmail.com",
     "onePageListNum":"15",
-    "needComment":"1"
+    "needComment":"1",
+    "dayTheme":"light",
+    "startSite":"02/7/2024",
+   "nightTheme":"dark_colorblind"
 }
