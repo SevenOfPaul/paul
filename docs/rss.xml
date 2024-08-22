@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Paul的博客，吐槽下生活！</title><link>https://SevenOfPaul.github.io/paul.github.io</link><description>童话是一种生活态度，仅此而已。</description><copyright>Paul的博客，吐槽下生活！</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://SevenOfPaul.github.io/paul.github.io</link></image><lastBuildDate>Thu, 22 Aug 2024 08:24:46 +0000</lastBuildDate><managingEditor>Paul的博客，吐槽下生活！</managingEditor><ttl>60</ttl><webMaster>Paul的博客，吐槽下生活！</webMaster><item><title>电话号码的字母组合</title><link>https://SevenOfPaul.github.io/paul.github.io/post/dian-hua-hao-ma-de-zi-mu-zu-he.html</link><description># 电话号码的字母组合&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Paul的博客，吐槽下生活！</title><link>https://SevenOfPaul.github.io/paul.github.io</link><description>童话是一种生活态度，仅此而已。</description><copyright>Paul的博客，吐槽下生活！</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://SevenOfPaul.github.io/paul.github.io</link></image><lastBuildDate>Thu, 22 Aug 2024 08:27:53 +0000</lastBuildDate><managingEditor>Paul的博客，吐槽下生活！</managingEditor><ttl>60</ttl><webMaster>Paul的博客，吐槽下生活！</webMaster><item><title>电话号码的字母组合</title><link>https://SevenOfPaul.github.io/paul.github.io/post/dian-hua-hao-ma-de-zi-mu-zu-he.html</link><description># 电话号码的字母组合&#13;
+&lt;img width='467' alt='1724315114433' src='https://github.com/user-attachments/assets/986d225a-2961-4cec-baa2-430456c84652'&gt;&#13;
+[电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)&#13;
 今天依然是很简单的一道题，别看东西那么多，实际上就是多叉树路径，我们要递归的算法，把每一层的结果保存存入下一层，长度符合要求就存进vec中&#13;
+![image](https://github.com/user-attachments/assets/e6c4f583-5088-4403-9625-c0238b9df44e)&#13;
+## 入口函数&#13;
 ```rust&#13;
 use std::collections::HashMap;&#13;
 impl Solution {&#13;
@@ -24,7 +28,10 @@ impl Solution {&#13;
             Self::addVec(digits.chars().collect(),0,map.clone(),String::from(''),&amp;mut ans,len);&#13;
         ans&#13;
     }&#13;
-    pub fn addVec(digits:Vec&lt;char&gt;,idx:usize,map:HashMap&lt;i32,Vec&lt;char&gt;&gt;, origin:String, ans:&amp;mut Vec&lt;String&gt;,len:usize){&#13;
+```&#13;
+## 递归函数&#13;
+```rust&#13;
+ pub fn addVec(digits:Vec&lt;char&gt;,idx:usize,map:HashMap&lt;i32,Vec&lt;char&gt;&gt;, origin:String, ans:&amp;mut Vec&lt;String&gt;,len:usize){&#13;
         if origin.len()==len{&#13;
               ans.push(origin);&#13;
       }else{&#13;

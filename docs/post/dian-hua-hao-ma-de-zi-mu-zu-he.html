@@ -11,7 +11,11 @@
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
 <meta name="description" content="# 电话号码的字母组合
+<img width='467' alt='1724315114433' src='https://github.com/user-attachments/assets/986d225a-2961-4cec-baa2-430456c84652'>
+[电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
 今天依然是很简单的一道题，别看东西那么多，实际上就是多叉树路径，我们要递归的算法，把每一层的结果保存存入下一层，长度符合要求就存进vec中
+![image](https://github.com/user-attachments/assets/e6c4f583-5088-4403-9625-c0238b9df44e)
+## 入口函数
 ```rust
 use std::collections::HashMap;
 impl Solution {
@@ -35,7 +39,10 @@ impl Solution {
             Self::addVec(digits.chars().collect(),0,map.clone(),String::from(''),&mut ans,len);
         ans
     }
-    pub fn addVec(digits:Vec<char>,idx:usize,map:HashMap<i32,Vec<char>>, origin:String, ans:&mut Vec<String>,len:usize){
+```
+## 递归函数
+```rust
+ pub fn addVec(digits:Vec<char>,idx:usize,map:HashMap<i32,Vec<char>>, origin:String, ans:&mut Vec<String>,len:usize){
         if origin.len()==len{
               ans.push(origin);
       }else{
@@ -49,7 +56,11 @@ impl Solution {
 ```。">
 <meta property="og:title" content="电话号码的字母组合">
 <meta property="og:description" content="# 电话号码的字母组合
+<img width='467' alt='1724315114433' src='https://github.com/user-attachments/assets/986d225a-2961-4cec-baa2-430456c84652'>
+[电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
 今天依然是很简单的一道题，别看东西那么多，实际上就是多叉树路径，我们要递归的算法，把每一层的结果保存存入下一层，长度符合要求就存进vec中
+![image](https://github.com/user-attachments/assets/e6c4f583-5088-4403-9625-c0238b9df44e)
+## 入口函数
 ```rust
 use std::collections::HashMap;
 impl Solution {
@@ -73,7 +84,10 @@ impl Solution {
             Self::addVec(digits.chars().collect(),0,map.clone(),String::from(''),&mut ans,len);
         ans
     }
-    pub fn addVec(digits:Vec<char>,idx:usize,map:HashMap<i32,Vec<char>>, origin:String, ans:&mut Vec<String>,len:usize){
+```
+## 递归函数
+```rust
+ pub fn addVec(digits:Vec<char>,idx:usize,map:HashMap<i32,Vec<char>>, origin:String, ans:&mut Vec<String>,len:usize){
         if origin.len()==len{
               ans.push(origin);
       }else{
@@ -89,7 +103,7 @@ impl Solution {
 <meta property="og:url" content="https://SevenOfPaul.github.io/paul.github.io/post/dian-hua-hao-ma-de-zi-mu-zu-he.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
 <title>电话号码的字母组合</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
 
 
 </head>
@@ -156,40 +170,48 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>电话号码的字母组合</h1>
-<p>今天依然是很简单的一道题，别看东西那么多，实际上就是多叉树路径，我们要递归的算法，把每一层的结果保存存入下一层，长度符合要求就存进vec中</p>
-<div class="highlight highlight-source-rust"><pre class="notranslate"><span class="pl-k">use</span> std<span class="pl-kos">::</span>collections<span class="pl-kos">::</span><span class="pl-v">HashMap</span><span class="pl-kos">;</span>
-<span class="pl-k">impl</span> <span class="pl-smi">Solution</span> <span class="pl-kos">{</span>
-    <span class="pl-k">pub</span> <span class="pl-k">fn</span> <span class="pl-en">letter_combinations</span><span class="pl-kos">(</span><span class="pl-s1">digits</span><span class="pl-kos">:</span> <span class="pl-smi">String</span><span class="pl-kos">)</span> -&gt; <span class="pl-smi">Vec</span><span class="pl-kos">&lt;</span><span class="pl-smi">String</span><span class="pl-kos">&gt;</span> <span class="pl-kos">{</span>
-
-        <span class="pl-k">let</span> <span class="pl-k">mut</span> ans<span class="pl-kos">:</span><span class="pl-smi">Vec</span><span class="pl-kos">&lt;</span><span class="pl-smi">String</span><span class="pl-kos">&gt;</span>=<span class="pl-en">vec</span><span class="pl-en">!</span><span class="pl-kos">[</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
-        <span class="pl-k">if</span> digits<span class="pl-kos">.</span><span class="pl-en">len</span><span class="pl-kos">(</span><span class="pl-kos">)</span>==<span class="pl-c1">0</span><span class="pl-kos">{</span>
-            <span class="pl-k">return</span> ans<span class="pl-kos">;</span>
-        <span class="pl-kos">}</span>
-        <span class="pl-k">let</span> map = <span class="pl-smi">HashMap</span><span class="pl-kos">::</span><span class="pl-en">from</span><span class="pl-kos">(</span><span class="pl-kos">[</span>
-            <span class="pl-kos">(</span><span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-en">vec</span><span class="pl-en">!</span><span class="pl-kos">(</span><span class="pl-s">'a'</span>, <span class="pl-s">'b'</span>, <span class="pl-s">'c'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-            <span class="pl-kos">(</span><span class="pl-c1">3</span><span class="pl-kos">,</span> <span class="pl-en">vec</span><span class="pl-en">!</span><span class="pl-kos">(</span><span class="pl-s">'d'</span>, <span class="pl-s">'e'</span>, <span class="pl-s">'f'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-            <span class="pl-kos">(</span><span class="pl-c1">4</span><span class="pl-kos">,</span> <span class="pl-en">vec</span><span class="pl-en">!</span><span class="pl-kos">(</span><span class="pl-s">'g'</span>, <span class="pl-s">'h'</span>, <span class="pl-s">'i'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-            <span class="pl-kos">(</span><span class="pl-c1">5</span><span class="pl-kos">,</span> <span class="pl-en">vec</span><span class="pl-en">!</span><span class="pl-kos">(</span><span class="pl-s">'j'</span>, <span class="pl-s">'k'</span>, <span class="pl-s">'l'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-            <span class="pl-kos">(</span><span class="pl-c1">6</span><span class="pl-kos">,</span> <span class="pl-en">vec</span><span class="pl-en">!</span><span class="pl-kos">(</span><span class="pl-s">'m'</span>, <span class="pl-s">'n'</span>, <span class="pl-s">'o'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-            <span class="pl-kos">(</span><span class="pl-c1">7</span><span class="pl-kos">,</span> <span class="pl-en">vec</span><span class="pl-en">!</span><span class="pl-kos">(</span><span class="pl-s">'p'</span>, <span class="pl-s">'q'</span>, <span class="pl-s">'r'</span>, <span class="pl-s">'s'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-            <span class="pl-kos">(</span><span class="pl-c1">8</span><span class="pl-kos">,</span> <span class="pl-en">vec</span><span class="pl-en">!</span><span class="pl-kos">(</span><span class="pl-s">'t'</span>, <span class="pl-s">'u'</span>, <span class="pl-s">'v'</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
-            <span class="pl-kos">(</span><span class="pl-c1">9</span><span class="pl-kos">,</span> <span class="pl-en">vec</span><span class="pl-en">!</span><span class="pl-kos">(</span><span class="pl-s">'w'</span>, <span class="pl-s">'x'</span>, <span class="pl-s">'y'</span>, <span class="pl-s">'z'</span><span class="pl-kos">)</span><span class="pl-kos">)</span>
-        <span class="pl-kos">]</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-  <span class="pl-k">let</span> len=digits<span class="pl-kos">.</span><span class="pl-en">len</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-            <span class="pl-smi">Self</span><span class="pl-kos">::</span><span class="pl-en">addVec</span><span class="pl-kos">(</span>digits<span class="pl-kos">.</span><span class="pl-en">chars</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">collect</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span><span class="pl-c1">0</span><span class="pl-kos">,</span>map<span class="pl-kos">.</span><span class="pl-en">clone</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span><span class="pl-smi">String</span><span class="pl-kos">::</span><span class="pl-en">from</span><span class="pl-kos">(</span><span class="pl-s">""</span><span class="pl-kos">)</span><span class="pl-kos">,</span><span class="pl-c1">&amp;</span><span class="pl-k">mut</span> ans<span class="pl-kos">,</span>len<span class="pl-kos">)</span><span class="pl-kos">;</span>
-        ans
-    <span class="pl-kos">}</span>
-    <span class="pl-k">pub</span> <span class="pl-k">fn</span> <span class="pl-en">addVec</span><span class="pl-kos">(</span><span class="pl-s1">digits</span><span class="pl-kos">:</span><span class="pl-smi">Vec</span><span class="pl-kos">&lt;</span><span class="pl-smi">char</span><span class="pl-kos">&gt;</span><span class="pl-kos">,</span><span class="pl-s1">idx</span><span class="pl-kos">:</span><span class="pl-smi">usize</span><span class="pl-kos">,</span><span class="pl-s1">map</span><span class="pl-kos">:</span><span class="pl-smi">HashMap</span><span class="pl-kos">&lt;</span><span class="pl-smi">i32</span><span class="pl-kos">,</span><span class="pl-smi">Vec</span><span class="pl-kos">&lt;</span><span class="pl-smi">char</span><span class="pl-kos">&gt;</span><span class="pl-kos">&gt;</span><span class="pl-kos">,</span> <span class="pl-s1">origin</span><span class="pl-kos">:</span><span class="pl-smi">String</span><span class="pl-kos">,</span> <span class="pl-s1">ans</span><span class="pl-kos">:</span><span class="pl-c1">&amp;</span><span class="pl-k">mut</span> <span class="pl-smi">Vec</span><span class="pl-kos">&lt;</span><span class="pl-smi">String</span><span class="pl-kos">&gt;</span><span class="pl-kos">,</span><span class="pl-s1">len</span><span class="pl-kos">:</span><span class="pl-smi">usize</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
-        <span class="pl-k">if</span> origin<span class="pl-kos">.</span><span class="pl-en">len</span><span class="pl-kos">(</span><span class="pl-kos">)</span>==len<span class="pl-kos">{</span>
-              ans<span class="pl-kos">.</span><span class="pl-en">push</span><span class="pl-kos">(</span>origin<span class="pl-kos">)</span><span class="pl-kos">;</span>
-      <span class="pl-kos">}</span><span class="pl-k">else</span><span class="pl-kos">{</span>
-            <span class="pl-k">let</span> strs=map<span class="pl-kos">.</span><span class="pl-en">get</span><span class="pl-kos">(</span><span class="pl-c1">&amp;</span><span class="pl-kos">(</span>digits<span class="pl-kos">[</span>idx<span class="pl-kos">]</span> <span class="pl-k">as</span> <span class="pl-smi">i32</span> - <span class="pl-s">'0'</span> <span class="pl-k">as</span> <span class="pl-smi">i32</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">unwrap</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
-          <span class="pl-k">for</span> str <span class="pl-k">in</span> strs <span class="pl-kos">{</span>
-             <span class="pl-smi">Self</span><span class="pl-kos">::</span><span class="pl-en">addVec</span><span class="pl-kos">(</span>digits<span class="pl-kos">.</span><span class="pl-en">clone</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span>idx+<span class="pl-c1">1</span><span class="pl-kos">,</span>map<span class="pl-kos">.</span><span class="pl-en">clone</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span><span class="pl-kos">(</span>origin<span class="pl-kos">.</span><span class="pl-en">clone</span><span class="pl-kos">(</span><span class="pl-kos">)</span>+ <span class="pl-c1">&amp;</span><span class="pl-c1">*</span>str<span class="pl-kos">.</span><span class="pl-en">to_string</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">,</span>ans<span class="pl-kos">,</span>len<span class="pl-kos">)</span><span class="pl-kos">;</span>
-          <span class="pl-kos">}</span>
-      <span class="pl-kos">}</span>
-    <span class="pl-kos">}</span>
-<span class="pl-kos">}</span></pre></div></div>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/986d225a-2961-4cec-baa2-430456c84652"><img width="467" alt="1724315114433" src="https://github.com/user-attachments/assets/986d225a-2961-4cec-baa2-430456c84652" style="max-width: 100%;"></a></p>
+[电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/)
+今天依然是很简单的一道题，别看东西那么多，实际上就是多叉树路径，我们要递归的算法，把每一层的结果保存存入下一层，长度符合要求就存进vec中
+![image](https://github.com/user-attachments/assets/e6c4f583-5088-4403-9625-c0238b9df44e)
+## 入口函数
+```rust
+use std::collections::HashMap;
+impl Solution {
+    pub fn letter_combinations(digits: String) -&gt; Vec {
+<pre class="notranslate"><code class="notranslate">    let mut ans:Vec&lt;String&gt;=vec![];
+    if digits.len()==0{
+        return ans;
+    }
+    let map = HashMap::from([
+        (2, vec!('a', 'b', 'c')),
+        (3, vec!('d', 'e', 'f')),
+        (4, vec!('g', 'h', 'i')),
+        (5, vec!('j', 'k', 'l')),
+        (6, vec!('m', 'n', 'o')),
+        (7, vec!('p', 'q', 'r', 's')),
+        (8, vec!('t', 'u', 'v')),
+        (9, vec!('w', 'x', 'y', 'z'))
+    ]);
+</code></pre>
+<p>let len=digits.len();<br>
+Self::addVec(digits.chars().collect(),0,map.clone(),String::from(""),&amp;mut ans,len);<br>
+ans<br>
+}</p>
+<pre class="notranslate"><code class="notranslate">## 递归函数
+```rust
+ pub fn addVec(digits:Vec&lt;char&gt;,idx:usize,map:HashMap&lt;i32,Vec&lt;char&gt;&gt;, origin:String, ans:&amp;mut Vec&lt;String&gt;,len:usize){
+        if origin.len()==len{
+              ans.push(origin);
+      }else{
+            let strs=map.get(&amp;(digits[idx] as i32 - '0' as i32)).unwrap();
+          for str in strs {
+             Self::addVec(digits.clone(),idx+1,map.clone(),(origin.clone()+ &amp;*str.to_string()),ans,len);
+          }
+      }
+    }
+}
+</code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
