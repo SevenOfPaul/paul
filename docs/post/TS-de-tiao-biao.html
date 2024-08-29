@@ -11,92 +11,98 @@
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
 <meta name="description" content="```
-const level: number = 10
 class TNode {
-val: number
-next: TNode[] = new Array(level)
-constructor(_val: number) {
-this.val = _val
-}
+  val: number
+  next: TNode[];
+  constructor(_val: number,level:number) {
+      this.val = _val
+      this. next: TNode[] = new Array<TNode>(level)
+  } 
 }
 class Skiplist {
-he: TNode = new TNode(-1)
-find(t: number): Array {
-let cur = this.he
-let ns: TNode[] = new Array(level)
-for (let i = level - 1; i >= 0; i--) {
-while (cur.next[i] != null && cur.next[i].val < t){
-cur = cur.next[i];
-}
-ns[i] = cur;
-}
-return ns
-}
-search(t: number): boolean {
-let ns= this.find(t)
-return ns[0].next[0] != null && ns[0].next[0].val == t
-}
-add(t: number): void {
-let ns= this.find(t)
-const node = new TNode(t)
-for (let i = 0; i < level; i++) {
-node.next[i] = ns[i].next[i]
-ns[i].next[i] = node
-if (Math.round(Math.random()) == 0) break
-}
-}
-erase(t: number): boolean {
-let ns= this.find(t)
-const node = ns[0].next[0]
-if (node == null || node.val != t) return false
-for (let i = 0; i < level && ns[i].next[i] == node; i++) ns[i].next[i] = ns[i].next[i].next[i]
-return true
-}
+  he: TNode = new TNode(-1)
+      level: number = 10
+  find(t: number): Array<TNode> {
+      let cur = this.he
+      let ns: TNode[] = new Array<TNode>(this.level)
+      for (let i = this.level - 1; i >= 0; i--) {
+          while (cur.next[i] != null && cur.next[i].val < t){
+            cur = cur.next[i];
+          }
+          ns[i] = cur;
+      }
+      return ns
+  }
+  search(t: number): boolean {
+     let ns= this.find(t)
+      return ns[0].next[0] != null && ns[0].next[0].val == t
+  }
+  add(t: number): void {
+    let ns= this.find(t)
+      const node = new TNode(t,this.level)
+      for (let i = 0; i < this.level; i++) {
+          node.next[i] = ns[i].next[i]
+          ns[i].next[i] = node
+          if (Math.round(Math.random()) == 0) break
+      }
+  }
+  erase(t: number): boolean {
+    let ns= this.find(t)
+      const node = ns[0].next[0]
+      if (node == null || node.val != t) return false
+      for (let i = 0; i < this.level && ns[i].next[i] == node; i++){
+        ns[i].next[i] = ns[i].next[i].next[i]
+      }
+      return true
+  }
 }
 ```。">
 <meta property="og:title" content="TS的跳表">
 <meta property="og:description" content="```
-const level: number = 10
 class TNode {
-val: number
-next: TNode[] = new Array(level)
-constructor(_val: number) {
-this.val = _val
-}
+  val: number
+  next: TNode[];
+  constructor(_val: number,level:number) {
+      this.val = _val
+      this. next: TNode[] = new Array<TNode>(level)
+  } 
 }
 class Skiplist {
-he: TNode = new TNode(-1)
-find(t: number): Array {
-let cur = this.he
-let ns: TNode[] = new Array(level)
-for (let i = level - 1; i >= 0; i--) {
-while (cur.next[i] != null && cur.next[i].val < t){
-cur = cur.next[i];
-}
-ns[i] = cur;
-}
-return ns
-}
-search(t: number): boolean {
-let ns= this.find(t)
-return ns[0].next[0] != null && ns[0].next[0].val == t
-}
-add(t: number): void {
-let ns= this.find(t)
-const node = new TNode(t)
-for (let i = 0; i < level; i++) {
-node.next[i] = ns[i].next[i]
-ns[i].next[i] = node
-if (Math.round(Math.random()) == 0) break
-}
-}
-erase(t: number): boolean {
-let ns= this.find(t)
-const node = ns[0].next[0]
-if (node == null || node.val != t) return false
-for (let i = 0; i < level && ns[i].next[i] == node; i++) ns[i].next[i] = ns[i].next[i].next[i]
-return true
-}
+  he: TNode = new TNode(-1)
+      level: number = 10
+  find(t: number): Array<TNode> {
+      let cur = this.he
+      let ns: TNode[] = new Array<TNode>(this.level)
+      for (let i = this.level - 1; i >= 0; i--) {
+          while (cur.next[i] != null && cur.next[i].val < t){
+            cur = cur.next[i];
+          }
+          ns[i] = cur;
+      }
+      return ns
+  }
+  search(t: number): boolean {
+     let ns= this.find(t)
+      return ns[0].next[0] != null && ns[0].next[0].val == t
+  }
+  add(t: number): void {
+    let ns= this.find(t)
+      const node = new TNode(t,this.level)
+      for (let i = 0; i < this.level; i++) {
+          node.next[i] = ns[i].next[i]
+          ns[i].next[i] = node
+          if (Math.round(Math.random()) == 0) break
+      }
+  }
+  erase(t: number): boolean {
+    let ns= this.find(t)
+      const node = ns[0].next[0]
+      if (node == null || node.val != t) return false
+      for (let i = 0; i < this.level && ns[i].next[i] == node; i++){
+        ns[i].next[i] = ns[i].next[i].next[i]
+      }
+      return true
+  }
 }
 ```。">
 <meta property="og:type" content="article">
@@ -169,47 +175,50 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><pre class="notranslate"><code class="notranslate">const level: number = 10
-class TNode {
-val: number
-next: TNode[] = new Array(level)
-constructor(_val: number) {
-this.val = _val
-}
+<div class="markdown-body" id="postBody"><pre class="notranslate"><code class="notranslate">class TNode {
+  val: number
+  next: TNode[];
+  constructor(_val: number,level:number) {
+      this.val = _val
+      this. next: TNode[] = new Array&lt;TNode&gt;(level)
+  } 
 }
 class Skiplist {
-he: TNode = new TNode(-1)
-find(t: number): Array {
-let cur = this.he
-let ns: TNode[] = new Array(level)
-for (let i = level - 1; i &gt;= 0; i--) {
-while (cur.next[i] != null &amp;&amp; cur.next[i].val &lt; t){
-cur = cur.next[i];
-}
-ns[i] = cur;
-}
-return ns
-}
-search(t: number): boolean {
-let ns= this.find(t)
-return ns[0].next[0] != null &amp;&amp; ns[0].next[0].val == t
-}
-add(t: number): void {
-let ns= this.find(t)
-const node = new TNode(t)
-for (let i = 0; i &lt; level; i++) {
-node.next[i] = ns[i].next[i]
-ns[i].next[i] = node
-if (Math.round(Math.random()) == 0) break
-}
-}
-erase(t: number): boolean {
-let ns= this.find(t)
-const node = ns[0].next[0]
-if (node == null || node.val != t) return false
-for (let i = 0; i &lt; level &amp;&amp; ns[i].next[i] == node; i++) ns[i].next[i] = ns[i].next[i].next[i]
-return true
-}
+  he: TNode = new TNode(-1)
+      level: number = 10
+  find(t: number): Array&lt;TNode&gt; {
+      let cur = this.he
+      let ns: TNode[] = new Array&lt;TNode&gt;(this.level)
+      for (let i = this.level - 1; i &gt;= 0; i--) {
+          while (cur.next[i] != null &amp;&amp; cur.next[i].val &lt; t){
+            cur = cur.next[i];
+          }
+          ns[i] = cur;
+      }
+      return ns
+  }
+  search(t: number): boolean {
+     let ns= this.find(t)
+      return ns[0].next[0] != null &amp;&amp; ns[0].next[0].val == t
+  }
+  add(t: number): void {
+    let ns= this.find(t)
+      const node = new TNode(t,this.level)
+      for (let i = 0; i &lt; this.level; i++) {
+          node.next[i] = ns[i].next[i]
+          ns[i].next[i] = node
+          if (Math.round(Math.random()) == 0) break
+      }
+  }
+  erase(t: number): boolean {
+    let ns= this.find(t)
+      const node = ns[0].next[0]
+      if (node == null || node.val != t) return false
+      for (let i = 0; i &lt; this.level &amp;&amp; ns[i].next[i] == node; i++){
+        ns[i].next[i] = ns[i].next[i].next[i]
+      }
+      return true
+  }
 }
 </code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
